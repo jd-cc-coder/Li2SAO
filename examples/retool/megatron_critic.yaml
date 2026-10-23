@@ -1,0 +1,18 @@
+# Actor / critic Megatron role overrides for ReTool LiSAO.
+# Critic is a separate copy of the policy weights (same init ckpt, scalar value
+# head). Freeze attention; train MLP + value head only.
+#
+# The run script may rewrite `save` to ${SAVE_DIR} / ${SAVE_DIR}/critic.
+megatron:
+  - name: default
+    role: actor
+    overrides:
+      lr: 1.0e-6
+  - name: default
+    role: critic
+    overrides:
+      lr: 5.0e-6
+      freeze_params_name_list:
+        - self_attention
+      lambd: 1.0
+      gae_alpha: null
