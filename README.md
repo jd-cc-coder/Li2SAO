@@ -1,8 +1,8 @@
-# Li2SAO
+# Li<sup>2</sup>SAO: Lifting Light Single-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping
 
 > The road ahead is long; yet RL shall seek high and low.
 
-**Li2SAO (Lifting Light Single-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping)** trains a single-rollout asynchronous policy without a pretrained value model. It first bootstraps the actor with group-relative advantages and the critic with group-centered returns. Once the critic is ready, training switches once to single-rollout GAE.
+**Li<sup>2</sup>SAO** trains a single-rollout asynchronous policy without a pretrained value model. It first bootstraps the actor with group-relative advantages and the critic with group-centered returns. Once the critic is ready, training switches once to single-rollout GAE.
 
 This repository trains Qwen3-4B on DAPO-Math-17K and evaluates on AIME 2024, AIME 2025, and AIME 2026. The two tasks are single-turn mathematical reasoning and ReTool agentic tool use. Each task compares GRPO, LiSAO, and Li2SAO on the same in-flight asynchronous pipeline.
 
